@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18df1bfd1e7b16747ab766606de59b73, type: 3}
+  m_Name: Wave1
+  m_EditorClassIdentifier: 
+  _waveEnemies:
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
+  - {fileID: 1839394586401105000, guid: 56467bd35ba1f1a48bed336be71d6c41, type: 3}
