@@ -13,12 +13,9 @@ public class WaveSpawner : MonoBehaviour
     private List<Transform> _spawnPlaces;
     private List<GameObject> _waveEnemies;
 
-    
 
     private void Start()
     {
-        //Dima is stupid a programmer! Because:
-
         //Заполняем _waves полностью, пробегаясь по всем дочерним объектам Waves(this.gameObject)
         foreach (Transform wavesChild in this.transform)
         {
@@ -51,15 +48,22 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private float waveStartDelay = 1.5f;
+     
+    private int _numberEnemies = 0;
     public void NotifyDeathEnemy(Vector3 spawnPosition)
     {
-        if(_waveEnemies.Count != 0)
+        _numberEnemies--;
+        if (_waveEnemies.Count != 0)
         {
             SetEnemy(spawnPosition, _moveTime);
+            return;
         }
-        else
+        
+        if(_numberEnemies == 0)
         {
-            StartNextWave();
+            Invoke("StartNextWave", waveStartDelay);
         }
     }
     private IEnumerator<WaitForSeconds> SetEnemies(float delay, float moveTime)
@@ -76,6 +80,9 @@ public class WaveSpawner : MonoBehaviour
     private void SetEnemy(Vector3 spawnPosition, float moveTime)
     {
         GameObject enemy = Instantiate(_waveEnemies[0], _initialSpawnPlace.position, Quaternion.identity);
+
+        _numberEnemies++;
+
         enemy.transform.DOMove(spawnPosition, moveTime);
 
         EnemyLifeHandler enemyLifeHandler = enemy.GetComponent<EnemyLifeHandler>();
