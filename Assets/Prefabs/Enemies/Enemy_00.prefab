@@ -42,7 +42,8 @@ GameObject:
   - component: {fileID: 8559103067211343345}
   - component: {fileID: 2279549942529777233}
   - component: {fileID: 4894480182240943260}
-  - component: {fileID: -1854963710750061692}
+  - component: {fileID: 5521657806118347109}
+  - component: {fileID: 360332819054973021}
   m_Layer: 8
   m_Name: Enemy_00
   m_TagString: Untagged
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 5
---- !u!114 &-1854963710750061692
+--- !u!114 &5521657806118347109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,15 +281,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839394586401105000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61332749229d4f54ebd1953bd5257713, type: 3}
+  m_Script: {fileID: 11500000, guid: 20823237b3342c34e9cc3d81806b4481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyType: 0
-  _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
+--- !u!114 &360332819054973021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839394586401105000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee121d760c2a514da2cc5934ea7afef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackDelay: 3
   _damage: 1
+  _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
   _bulletSpeed: 3
-  _firingDelay: 2
-  _bulletDestroyTime: 3
+  _bulletDestroyTime: 10
+  _muzzle: {fileID: 2077232313}
 --- !u!1 &3567978711739610725
 GameObject:
   m_ObjectHideFlags: 0
