@@ -9,7 +9,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private float _bulletSpeed;   
     [SerializeField] private float _firingDelay;   
     [SerializeField] private float _bulletDestroyTime;
-    [SerializeField] private Transform _bulletsContainer;
+    private Transform _bulletsContainer;
 
     private Pool<Bullet> _bulletsPool;
     private Transform _muzzle;
@@ -17,6 +17,7 @@ public class EnemyShooting : MonoBehaviour
 
     private void Start()
     {
+        _bulletsContainer = new GameObject().transform;
         _muzzle = transform.GetChild(0);
         _bulletsPool = new Pool<Bullet>(_bullet ,count: 10 , _bulletsContainer);
     }
@@ -30,10 +31,13 @@ public class EnemyShooting : MonoBehaviour
             {
                 case EnemyTypes.Default:
                     DefaultShooting();break;
-
             }
         }
 
+    }
+    private void OnDestroy()
+    {
+        Destroy(_bulletsContainer.gameObject);
     }
 
     void DefaultShooting()

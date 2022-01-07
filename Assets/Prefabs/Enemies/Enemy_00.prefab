@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 1839394586401105000}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 1.613, y: 1.5, z: -72.29381}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49777955, y: 0.49777955, z: 0.49777955}
   m_Children:
   - {fileID: 2077232313}
   - {fileID: 474603008557194327}
@@ -287,9 +287,8 @@ MonoBehaviour:
   _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
   _damage: 1
   _bulletSpeed: 3
-  _firingDelay: 1
+  _firingDelay: 2
   _bulletDestroyTime: 3
-  _bulletsContainer: {fileID: 474603008557194327}
 --- !u!1 &3567978711739610725
 GameObject:
   m_ObjectHideFlags: 0

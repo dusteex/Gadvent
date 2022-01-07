@@ -152,9 +152,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8685257443955695441}
-  - component: {fileID: 507635370681497748}
   - component: {fileID: 7378093112037170504}
-  - component: {fileID: 7378093112037170505}
+  - component: {fileID: -7137467420603107067}
   m_Layer: 0
   m_Name: BasicGunCenter
   m_TagString: Untagged
@@ -178,28 +177,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &507635370681497748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5963271769407181802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c521365d082c36544ac3d621f3106ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: Basic
-  _firingDelay: 0.2
-  _damage: 1
-  _bulletSpeed: 20
-  _bulletDestroyTime: 0.5
-  _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
-  _rarityType: 0
-  _muzzles:
-  - {fileID: 4503598241878240391}
-  _bulletsContainer: {fileID: 7333498990742199650}
 --- !u!114 &7378093112037170504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8898662f22827314db3758e12da8c972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7378093112037170505
+--- !u!114 &-7137467420603107067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,6 +198,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5963271769407181802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de883051dfe32bf4886db2a73d47eb04, type: 3}
+  m_Script: {fileID: 11500000, guid: c944457fbdf21f84e905bbaddd9fe47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _firingDelay: 0.3
+  _damage: 1
+  _bulletSpeed: 5
+  _bulletDestroyTime: 2
+  _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
+  _rarityType: 0
+  _muzzle: {fileID: 4503598241878240391}

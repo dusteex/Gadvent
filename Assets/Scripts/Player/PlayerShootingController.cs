@@ -1,23 +1,23 @@
 using UnityEngine;
-public class PlayerShootingHandler : MonoBehaviour
+public class PlayerShootingController : MonoBehaviour
 {
-    private Shooting _shootingType;
+    private PlayerShooting _playerShooting;
     private float _currentDelay;
 
     private void Start()
     {
-        _shootingType = GetComponent<Shooting>();
+        _playerShooting = GetComponent<PlayerShooting>();
     }
 
     private void Update()
     {
         _currentDelay += Time.deltaTime;
-        if (IsPlayerCanShoot()) _shootingType.Shoot();
+        if (IsPlayerCanShoot()) _playerShooting.Shoot();
 
     }
     private bool IsPlayerCanShoot()
     {
-        if(_currentDelay > _shootingType.gunParams.FiringDelay)
+        if(_currentDelay > _playerShooting.FiringDelay)
         {
             _currentDelay = 0;
             return true;
