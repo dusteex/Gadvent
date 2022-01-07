@@ -84,6 +84,8 @@ public class WaveSpawner : MonoBehaviour
         _numberEnemies++;
 
         enemy.transform.DOMove(spawnPosition, moveTime);
+        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
+        StartCoroutine(enemyMovement.SetMove(moveTime));
 
         EnemyLifeHandler enemyLifeHandler = enemy.GetComponent<EnemyLifeHandler>();
         enemyLifeHandler.SetSpawnPosition(spawnPosition);

@@ -18,7 +18,7 @@ abstract public class EnemyShooting : EnemyAttacking
 
     private void OnDestroy()
     {
-        Destroy(_bulletsContainer.gameObject);
+        if(_bulletsContainer.gameObject != null  ) Destroy(_bulletsContainer.gameObject);
     }
 
 

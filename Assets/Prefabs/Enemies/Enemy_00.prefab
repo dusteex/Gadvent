@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4894480182240943260}
   - component: {fileID: 5521657806118347109}
   - component: {fileID: 360332819054973021}
+  - component: {fileID: 3097602266023771585}
   m_Layer: 8
   m_Name: Enemy_00
   m_TagString: Untagged
@@ -189,10 +190,23 @@ MonoBehaviour:
   _minAttackDelay: 1.5
   _maxAttackDelay: 4
   _damage: 1
-  _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
+  _bullet: {fileID: 46836323405898879, guid: f21d5a5adb9c3bf49868f46037657e6e, type: 3}
   _bulletSpeed: 3
   _bulletDestroyTime: 10
   _muzzle: {fileID: 2077232313}
+--- !u!114 &3097602266023771585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839394586401105000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92681fa933bc6cf4ab6d5116a99a179f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveDelay: 2
 --- !u!1 &3567978711739610725
 GameObject:
   m_ObjectHideFlags: 0

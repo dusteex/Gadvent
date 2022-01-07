@@ -160,6 +160,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388220755}
     m_Modifications:
+    - target: {fileID: 3195891838972551685, guid: c00bde0ecb1a3a547a6435b8dad01179, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195891838972551685, guid: c00bde0ecb1a3a547a6435b8dad01179, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.031
+      objectReference: {fileID: 0}
     - target: {fileID: 5963271769407181802, guid: c00bde0ecb1a3a547a6435b8dad01179, type: 3}
       propertyPath: m_Name
       value: BasicGunCenter
@@ -217,6 +225,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2048765749}
     m_Modifications:
+    - target: {fileID: 3195891838972551685, guid: c00bde0ecb1a3a547a6435b8dad01179, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.137
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195891838972551685, guid: c00bde0ecb1a3a547a6435b8dad01179, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.031
+      objectReference: {fileID: 0}
     - target: {fileID: 5963271769407181802, guid: c00bde0ecb1a3a547a6435b8dad01179, type: 3}
       propertyPath: m_Name
       value: BasicGunCenter
