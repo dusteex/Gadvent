@@ -4,10 +4,12 @@ public class EnemyAttackController : MonoBehaviour
 {
     private EnemyAttacking _enemyAttacking;
     private float _currentDelay;
+    private float _targetDelay;
 
     private void Start()
     {
         _enemyAttacking = GetComponent<EnemyAttacking>();
+        SetRandomDelay();
     }
 
     void Update()
@@ -18,8 +20,9 @@ public class EnemyAttackController : MonoBehaviour
 
     private bool isEnemyCanAttack()
     {
-        if(_currentDelay >= _enemyAttacking.AttackDelay )
+        if(_currentDelay >= _targetDelay )
         {
+            SetRandomDelay();
             _currentDelay = 0;
             return true;
         }
@@ -28,4 +31,10 @@ public class EnemyAttackController : MonoBehaviour
             return false;
         }
     }
+
+    private void SetRandomDelay()
+    {
+        _targetDelay =  Random.Range(_enemyAttacking.MinAttackDelay,_enemyAttacking.MaxAttackDelay);
+    }
+
 }

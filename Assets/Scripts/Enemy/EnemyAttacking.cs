@@ -1,22 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class EnemyAttacking : MonoBehaviour
 {
-    [SerializeField] protected float _attackDelay;
+    [SerializeField] protected float _minAttackDelay;
+    [SerializeField] protected float _maxAttackDelay;
     [SerializeField] protected float _damage;
 
-    public float AttackDelay => _attackDelay;
+    public float MinAttackDelay => _minAttackDelay;
+    public float MaxAttackDelay => _maxAttackDelay;
 
     abstract public void Attack();
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }
