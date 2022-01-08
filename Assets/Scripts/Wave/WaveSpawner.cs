@@ -7,6 +7,8 @@ using DG.Tweening;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private Transform _initialSpawnPlace;
+    [SerializeField] private Transform _leftTopLimiter;
+    [SerializeField] private Transform _rightBottomLimiter;
 
     private List<Wave> _waves = new List<Wave>();
     private Wave _currentWave;
@@ -85,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
 
         enemy.transform.DOMove(spawnPosition, moveTime);
         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-        StartCoroutine(enemyMovement.SetMove(moveTime));
+        StartCoroutine(enemyMovement.SetMove(moveTime,_leftTopLimiter.position,_rightBottomLimiter.position));
 
         EnemyLifeHandler enemyLifeHandler = enemy.GetComponent<EnemyLifeHandler>();
         enemyLifeHandler.SetSpawnPosition(spawnPosition);
