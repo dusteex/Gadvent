@@ -4,15 +4,7 @@ using UnityEngine;
 public class EnemyLifeHandler : MonoBehaviour
 {
     [SerializeField] private float _health;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    private bool _death = false;
 
     private Vector3 _spawnPosition;
     bool _spawnPointInitialized = false;
@@ -28,14 +20,16 @@ public class EnemyLifeHandler : MonoBehaviour
     public void TakeDamage(float reduceValue)
     {
         _health -= reduceValue;
-        if(_health <= 0) Death();
+        if(_health <= 0 && _death == false) Death();
     }
 
     public Action<Vector3> NotifyDeathEnemy;
     private void Death()
     {
-        NotifyDeathEnemy.Invoke(_spawnPosition);
+        _death = true;
+        PowerUpSpawner.PowerUpSpawnEvent.Invoke(transform.position);
         Destroy(gameObject);
+        NotifyDeathEnemy.Invoke(_spawnPosition);
     }
 
 }

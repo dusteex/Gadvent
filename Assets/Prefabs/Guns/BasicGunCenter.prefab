@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3195891838972551683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.095, z: 0}
+  m_LocalPosition: {x: 0.114, y: 0.031, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4503598241878240391}
@@ -207,4 +207,4 @@ MonoBehaviour:
   _bulletDestroyTime: 2
   _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
   _rarityType: 0
-  _muzzle: {fileID: 4503598241878240391}
+  _muzzleTransform: {fileID: 4503598241878240391}

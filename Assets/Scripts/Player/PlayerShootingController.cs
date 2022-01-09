@@ -3,10 +3,17 @@ public class PlayerShootingController : MonoBehaviour
 {
     private PlayerShooting _playerShooting;
     private float _currentDelay;
+    private bool _enemiesSet = false;
+
+    private void StartShoot(bool condition)
+    {
+        _enemiesSet = condition;
+    }
 
     private void Start()
     {
         _playerShooting = GetComponent<PlayerShooting>();
+        WaveSpawner.EnemiesSetEvent.AddListener(StartShoot);
     }
 
     private void Update()
@@ -17,7 +24,7 @@ public class PlayerShootingController : MonoBehaviour
     }
     private bool IsPlayerCanShoot()
     {
-        if(_currentDelay > _playerShooting.FiringDelay)
+        if(_currentDelay > _playerShooting.FiringDelay && _enemiesSet)
         {
             _currentDelay = 0;
             return true;

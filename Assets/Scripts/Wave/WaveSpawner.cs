@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 // MUST BE CONNECTED TO SPAWN POINTS PARENT 
 
@@ -14,6 +16,8 @@ public class WaveSpawner : MonoBehaviour
     private Wave _currentWave;
     private List<Transform> _spawnPlaces;
     private List<GameObject> _waveEnemies;
+
+    static public UnityEvent<bool> EnemiesSetEvent = new UnityEvent<bool>();
 
 
     private void Start()
@@ -46,7 +50,7 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            //Делайте че хотите со своими сценами
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -54,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
     private float waveStartDelay = 1.5f;
      
     private int _numberEnemies = 0;
-    public void NotifyDeathEnemy(Vector3 spawnPosition)
+    public void TrySpawnEnemy(Vector3 spawnPosition)
     {
         _numberEnemies--;
         if (_waveEnemies.Count != 0)
@@ -66,10 +70,12 @@ public class WaveSpawner : MonoBehaviour
         if(_numberEnemies == 0)
         {
             Invoke("StartNextWave", waveStartDelay);
+            EnemiesSetEvent.Invoke(false);
         }
     }
     private IEnumerator<WaitForSeconds> SetEnemies(float delay, float moveTime)
     {
+
         // Если Врагов меньше, чем точек спавна, то спавним до тех пор пока не закончатся враги, иначе, пока не заполним все точки
         int spawnCount = _spawnPlaces.Count > _waveEnemies.Count ? _waveEnemies.Count : _spawnPlaces.Count;
         for (int i = 0; i < spawnCount; i++)
@@ -78,6 +84,7 @@ public class WaveSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(delay);
         }
+        EnemiesSetEvent.Invoke(true);
     }
     private void SetEnemy(Vector3 spawnPosition, float moveTime)
     {
@@ -91,7 +98,7 @@ public class WaveSpawner : MonoBehaviour
 
         EnemyLifeHandler enemyLifeHandler = enemy.GetComponent<EnemyLifeHandler>();
         enemyLifeHandler.SetSpawnPosition(spawnPosition);
-        enemyLifeHandler.NotifyDeathEnemy = NotifyDeathEnemy;
+        enemyLifeHandler.NotifyDeathEnemy = TrySpawnEnemy;
 
         _waveEnemies.RemoveAt(0);
     }

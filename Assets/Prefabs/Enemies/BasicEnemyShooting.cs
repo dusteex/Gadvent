@@ -5,7 +5,7 @@ public class BasicEnemyShooting : EnemyShooting
     {
         Bullet bullet = _bulletsPool.GetElement();
         bullet.transform.position = _muzzle.position;
-        bullet.Initialization(damage: _damage , bulletSpeed : _bulletSpeed , bulletDestroyTime:_bulletDestroyTime, isPlayerBullet:false , pool:_bulletsPool);
+        bullet.Initialization(damage: _damage , bulletSpeed : _bulletSpeed , bulletDestroyTime:_bulletDestroyTime, isPlayerBullet:false , pool:_bulletsPool , 180);
     }
 
 }

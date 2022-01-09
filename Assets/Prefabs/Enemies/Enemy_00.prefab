@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee121d760c2a514da2cc5934ea7afef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minAttackDelay: 0.5
-  _maxAttackDelay: 3.5
+  _minAttackDelay: 1.5
+  _maxAttackDelay: 4
   _damage: 1
   _bullet: {fileID: 46836323405898879, guid: f21d5a5adb9c3bf49868f46037657e6e, type: 3}
   _bulletSpeed: 3

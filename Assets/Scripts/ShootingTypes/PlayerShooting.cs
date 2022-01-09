@@ -8,7 +8,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float _bulletDestroyTime;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private RarityTypes _rarityType;
-    [SerializeField] private Transform _muzzle;
+    [SerializeField] private Transform _muzzleTransform;
+
     private Transform _bulletsContainer;
 
     public float FiringDelay => _firingDelay;
@@ -17,7 +18,7 @@ public class PlayerShooting : MonoBehaviour
     public float BulletDestroyTime => _bulletDestroyTime;
     public RarityTypes RarityType => _rarityType;
     public Bullet Bullet => _bullet;
-    public Transform Muzzle => _muzzle;
+    public Transform Muzzle => _muzzleTransform;
     public Transform BulletsContainer => _bulletsContainer;
     
     private int _level = 1;
@@ -29,6 +30,18 @@ public class PlayerShooting : MonoBehaviour
 
     private void Start()
     {
+        EventManager.FireRatePowerUpEvent.AddListener(upgradePercent=>
+        {
+            _firingDelay-= _firingDelay * upgradePercent/100;
+        });
+
+        EventManager.DamagePowerUpEvent.AddListener(upgradePercent=>
+        {
+            _damage += _damage * upgradePercent/100;
+        });
+
+        EventManager.ShootingPowerUpEvent.AddListener(LevelUp);
+
         Action[] ShootsByLevel = {Shoot1,Shoot2,Shoot3,Shoot4,Shoot5};
         this.ShootsByLevel = ShootsByLevel;
         _bulletsContainer = new GameObject().transform;
@@ -38,36 +51,50 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot1()
     {
-        Bullet bullet = _bulletsPool.GetElement();
-        bullet.transform.position = _muzzle.position;
-        bullet.Initialization(_damage ,_bulletSpeed,_bulletDestroyTime , isPlayerBullet:true , _bulletsPool );
+        SpawnBullet(_muzzleTransform.position);
     }
     private void Shoot2()
     {
-        Bullet bullet = _bulletsPool.GetElement();
-        bullet.transform.position = _muzzle.position;
-        bullet.Initialization(_damage ,_bulletSpeed,_bulletDestroyTime , isPlayerBullet:true , _bulletsPool );
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.03f,0),-2);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.03f,0),2);
+
     }private void Shoot3()
     {
-        Bullet bullet = _bulletsPool.GetElement();
-        bullet.transform.position = _muzzle.position;
-        bullet.Initialization(_damage ,_bulletSpeed,_bulletDestroyTime , isPlayerBullet:true , _bulletsPool );
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.05f,0),-2);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.05f,0),2);
+        SpawnBullet(_muzzleTransform.position);
+
     }private void Shoot4()
     {
-        Bullet bullet = _bulletsPool.GetElement();
-        bullet.transform.position = _muzzle.position;
-        bullet.Initialization(_damage ,_bulletSpeed,_bulletDestroyTime , isPlayerBullet:true , _bulletsPool );
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.07f,0),-3);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.07f,0),3);
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.05f,0),-2);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.05f,0),2);
+        SpawnBullet(_muzzleTransform.position);
+
     }private void Shoot5()
     {
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.09f,0),-5);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.09f,0),5);
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.07f,0),-3);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.07f,0),3);
+        SpawnBullet(_muzzleTransform.position + new Vector3(0.05f,0),-2);
+        SpawnBullet(_muzzleTransform.position - new Vector3(0.05f,0),2);
+        SpawnBullet(_muzzleTransform.position);
+    }
+
+    private void SpawnBullet(Vector3 pos,float angle = 0)
+    {
         Bullet bullet = _bulletsPool.GetElement();
-        bullet.transform.position = _muzzle.position;
-        bullet.Initialization(_damage ,_bulletSpeed,_bulletDestroyTime , isPlayerBullet:true , _bulletsPool );
+        bullet.transform.position = pos;
+        bullet.transform.rotation = Quaternion.Euler(0,0,angle);
+        bullet.Initialization(_damage ,_bulletSpeed,_bulletDestroyTime , isPlayerBullet:true , _bulletsPool , angle );
     }
 
     public void LevelUp()
     {
         if(_level >= MAXLEVEL) {
-            throw new Exception("Gun already have max Level");
+            return; // NEEDS TO CHANGE
         } 
         _level++;
         Shoot = ShootsByLevel[_level-1];

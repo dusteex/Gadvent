@@ -1,17 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLifeHandler : MonoBehaviour
 {
     [SerializeField] private float _health;
     void Start()
     {
-        
+        EventManager.HealthPowerUpEvent.AddListener(upgradePercent=>
+        {
+            _health += _health * upgradePercent / 100;
+        });
     }
 
-    void Update()
-    {
-        
-    }
 
     public void  TakeDamage(float reduceValue)
     {
@@ -21,6 +21,7 @@ public class PlayerLifeHandler : MonoBehaviour
 
     public void Death()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Destroy(gameObject);
     }
 }
