@@ -162,7 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb253d0047182c4f939c3dfd56e6a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
   _health: 5
+  _hitColor: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
+  _deathSounds:
+  - {fileID: 8300000, guid: b2cc7fc1822c44e469b2c2128413da91, type: 3}
 --- !u!114 &5521657806118347109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +195,7 @@ MonoBehaviour:
   _maxAttackDelay: 4
   _damage: 1
   _bullet: {fileID: 46836323405898879, guid: f21d5a5adb9c3bf49868f46037657e6e, type: 3}
-  _bulletSpeed: 3
+  _bulletSpeed: 4
   _bulletDestroyTime: 10
   _muzzle: {fileID: 2077232313}
 --- !u!114 &3097602266023771585

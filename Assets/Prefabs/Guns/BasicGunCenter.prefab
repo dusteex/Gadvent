@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8685257443955695441}
   - component: {fileID: 7378093112037170504}
-  - component: {fileID: -7137467420603107067}
+  - component: {fileID: 3678814503800374696}
   m_Layer: 0
   m_Name: BasicGunCenter
   m_TagString: Untagged
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8898662f22827314db3758e12da8c972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7137467420603107067
+--- !u!114 &3678814503800374696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,13 +198,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5963271769407181802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c944457fbdf21f84e905bbaddd9fe47a, type: 3}
+  m_Script: {fileID: 11500000, guid: 895bc215170a51241b69fa8ab7586565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _firingDelay: 0.3
   _damage: 1
   _bulletSpeed: 5
-  _bulletDestroyTime: 2
+  _bulletDestroyTime: 10
   _bullet: {fileID: -8270105339843647920, guid: f872b22e054005f448252bed5214422d, type: 3}
   _rarityType: 0
   _muzzleTransform: {fileID: 4503598241878240391}
+  _shootSounds:
+  - {fileID: 8300000, guid: cef1a0b41cd4735459f411b9b1e2913f, type: 3}

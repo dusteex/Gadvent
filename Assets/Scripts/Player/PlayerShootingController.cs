@@ -19,7 +19,11 @@ public class PlayerShootingController : MonoBehaviour
     private void Update()
     {
         _currentDelay += Time.deltaTime;
-        if (IsPlayerCanShoot()) _playerShooting.Shoot();
+        if (IsPlayerCanShoot()) 
+        {
+            SoundEventManager.GunSoundEvent.Invoke(_playerShooting.ShootSounds);
+            _playerShooting.Shoot();
+        };
 
     }
     private bool IsPlayerCanShoot()

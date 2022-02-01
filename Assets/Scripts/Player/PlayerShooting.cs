@@ -9,9 +9,11 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private RarityTypes _rarityType;
     [SerializeField] private Transform _muzzleTransform;
+    [SerializeField] private AudioClip[] _shootSounds;
 
     private Transform _bulletsContainer;
 
+    public AudioClip[] ShootSounds => _shootSounds;
     public float FiringDelay => _firingDelay;
     public float Damage => _damage;
     public float BulletSpeed => _bulletSpeed;
